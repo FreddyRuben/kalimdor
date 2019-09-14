@@ -4,7 +4,7 @@
   "description": "a movie webapp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js"
   },
   "author": "Freddy Ruben Franco Lugo",
   "license": "MIT",
