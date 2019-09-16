@@ -1,7 +1,14 @@
 'use strict';
 
-function exampleFunction(req, res){
-    res.send('Example Function');
+const Movie = require('../models/Movie');
+
+const movieCtr = {};
+
+movieCtr.getMovies = async (req, res) => {
+
+    const movies = await Movie.find();
+    res.json(movies);
+
 }
 
-module.exports = { exampleFunction }
+module.exports = movieCtr
