@@ -9,6 +9,6 @@ const movieSchema = new Schema({
     videoPath: {type: String, required: true}
 });
 
-module.exports = mongoose.model('Movies',Movieschema);
+module.exports = mongoose.model('Movies',movieSchema);
 
 
