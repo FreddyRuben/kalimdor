@@ -1,10 +1,16 @@
+'use strict';
+
 const multer = require('multer');
+const { extname } = require('path');
+const uuid = require('uuid/v1');
 
 const storage = multer.diskStorage({
-    destination: 'upload',
+    destination: (req, file, cb) =>{
+        cb(null, './uploads');
+    },
     filename: (req, file, cb) => {
-     cb(null, 'video.mp4.mkv')   
+     cb(null, `${uuid()}${extname(file.originalname)}`);
     }
 });
 
-module.exports = multer({storage});
+module.exports = multer({ storage });
