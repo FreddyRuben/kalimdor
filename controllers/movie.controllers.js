@@ -9,6 +9,10 @@ movieCtr.getMovies = async (req, res) => {
     res.json(movies);
 }
 
+movieCtr.getMovie = async (req,res) => {
+    const movie = await Movie.findById(req.params.id);
+    res.json(movie);
+}
 movieCtr.createMovies = async (req, res) => {
     const movie = new Movie({
         title: req.body.title,
@@ -22,5 +26,9 @@ movieCtr.createMovies = async (req, res) => {
     
     res.json({status: "Saved Succesfully"});
 }
+movieCtr.deleteMovie = async (req,res)=>{
+    await Movie.findByIdAndDelete(req.params.id);
+    res.json({"status":"movie successfully removed .."});
 
+}
 module.exports = movieCtr
