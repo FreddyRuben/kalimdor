@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs-extra');
+
 const Movie = require('../models/Movie');
 
 const movieCtr = {};
@@ -9,7 +11,7 @@ movieCtr.getMovies = async (req, res) => {
     res.json(movies);
 }
 
-movieCtr.getMovie = async (req,res) => {
+movieCtr.getMovie = async (req, res) => {
     const movie = await Movie.findById(req.params.id);
     res.json(movie);
 }
@@ -39,9 +41,10 @@ movieCtr.updateMovie = async(req, res) => {
     res.json({message: "Movie Succesfully Updated", movie: movie});
 }
 
-movieCtr.deleteMovie = async (req,res)=>{
-    await Movie.findByIdAndDelete(req.params.id);
-    res.json({"status":"Movie Successfully Removed"});
+movieCtr.deleteMovie = async (req,res) => {
+    const movie = await Movie.findByIdAndDelete(req.params.id);
+    
+    res.json({"status":"Movie Successfully Removed", movie: movie});
 
 }
 
