@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs-extra');
+const path = require('path');
 
 const Movie = require('../models/Movie');
 
@@ -43,7 +44,7 @@ movieCtr.updateMovie = async(req, res) => {
 
 movieCtr.deleteMovie = async (req,res) => {
     const movie = await Movie.findByIdAndDelete(req.params.id);
-    
+    fs.unlink(path.resolve(movie.videoPath));
     res.json({"status":"Movie Successfully Removed", movie: movie});
 
 }
