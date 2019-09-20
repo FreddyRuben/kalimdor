@@ -21,7 +21,7 @@ npm run dev
 ~~~
 
 #### Recommendation
-Use Postman or Insomnia to test APIs
+Use Postman or Insomnia to test API
 
 ---
 
@@ -46,4 +46,4 @@ npm run dev
 ~~~
 
 #### Recomendacion
-Utilizar Postman o Insomnia para poner a prueba las API
+Utilizar Postman o Insomnia para poner a prueba la API
